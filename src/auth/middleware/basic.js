@@ -30,8 +30,8 @@ async function basic(req, res, next)
   */
   try
   {
-    const user = await Users.findOne({ where: { username: username } });
-    const valid = await bcrypt.compare(password, user.password);
+    //const user = await Users.findOne({ where: { username: username } });
+    //const valid = await bcrypt.compare(password, user.password);
     if (valid)
     {
       // save the `body` from the request for later use for other middleware
@@ -40,7 +40,7 @@ async function basic(req, res, next)
 
       // make a new thing to attach to request called  `user`
       req.user = user;
-      res.status(200).json(user);
+      //res.status(200).json(user);
 
       next();
     }
