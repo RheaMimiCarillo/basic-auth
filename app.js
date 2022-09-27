@@ -44,7 +44,7 @@ app.post('/signup', async (req, res) =>
   } catch (e) { res.status(403).send('Error Creating User'); }
 });
 
-
+// TODO: create a routing module to handle these routes
 // Signin Route -- login with username and password
 // test with httpie
 // http post :3000/signin -a john:foo
@@ -61,6 +61,8 @@ app.post('/signin', async (req, res) =>
       - Pull username and password from that array
   */
 
+  // take all this stuff
+  // extract it with middleware
   let basicHeaderParts = req.headers.authorization.split(' ');  // ['Basic', 'sdkjdsljd=']
   let encodedString = basicHeaderParts.pop();  // sdkjdsljd=
   let decodedString = base64.decode(encodedString); // "username:password"
